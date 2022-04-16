@@ -10,3 +10,5 @@ CLIENT_ID=paste here
 CLIENT_SECRET=paste here
 
 When using CSV file use this website https://www.tunemymusic.com/Spotify-to-File.php
+
+Fix Pytube: https://github.com/pytube/pytube/issues/1281
