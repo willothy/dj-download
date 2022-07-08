@@ -89,7 +89,7 @@ class Downloader:
 
                     track_artist = artist_list[0]
 
-                    song_list.append((track_name, track_name))
+                    song_list.append((track_name, track_artist))
 
         return song_list
 
@@ -116,9 +116,14 @@ class Downloader:
 
         for song in song_list:
             song_name, song_artist = song
-            search_results = VideosSearch(song_name + ' ' + song_artist + ' lyrics', limit = 1)
+            search_results = VideosSearch(song_name + ' by ' + song_artist + '', limit = 1)
+
+            # for vid in search_results.result()['result']:
+            #     print(vid['title'])
+
             
             song_url = search_results.result()['result'][0]['id']
+            # print(search_results.result()['result'][0]['title'])
 
             ready_to_download.append((song_url, song_name, song_artist))
             print('Found: ' + song_name)
@@ -158,5 +163,5 @@ class Downloader:
 if __name__ == '__main__':
     test = Downloader()
     test.spotify_auth()
-    test.queue_adder(test.find_songs(test.spotify_song_list_playlist('7AtK8K2MbPBzlosZKg76J5')))
+    test.queue_adder(test.find_songs(test.spotify_song_list_playlist('6vHW4SVQkmLoveC0LBGIDG')))
     test.queue_downloader()
