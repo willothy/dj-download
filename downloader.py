@@ -67,7 +67,7 @@ class Downloader:
     def spotify_auth(self):
         cache_handler = spotipy.cache_handler.CacheFileHandler()
         auth_manager = spotipy.oauth2.SpotifyOAuth(client_id=my_client_id, client_secret=my_client_secret, redirect_uri=my_redurect_uri, scope=my_scope, cache_handler=cache_handler, show_dialog=True)
-        
+
         sp = spotipy.Spotify(auth_manager=auth_manager)
         self.sp = sp
         return sp.me()
@@ -78,11 +78,11 @@ class Downloader:
         if self.sp != None:
             playlist_info = self.sp.playlist(playlist_id)
             # print(playlist_info['tracks'])
-            
+
             if playlist_info != None:
                 for item in playlist_info['tracks']['items']:
                     track_name = item['track']['name']
-                    
+
                     artist_list = []
                     for artist in item['track']['artists']:
                         artist_list.append(artist['name'])
@@ -121,7 +121,7 @@ class Downloader:
             # for vid in search_results.result()['result']:
             #     print(vid['title'])
 
-            
+
             song_url = search_results.result()['result'][0]['id']
             # print(search_results.result()['result'][0]['title'])
 

@@ -1,0 +1,4 @@
+__pycache__/
+src-tauri/target
+frontend/target
+.env
